@@ -1,10 +1,10 @@
-package com.victormartin.projectcawd.threading;
+package com.victormartin.projectcawd.base.threading;
 
 import android.os.Handler;
 import android.os.Looper;
 
 import com.victormartin.projectcawd.domain.executor.MainThread;
-
+import javax.inject.Inject;
 
 /**
  * This class makes sure that the runnable we provide will be run on the main UI thread.
@@ -15,7 +15,8 @@ public class MainThreadImpl implements MainThread {
 
     private Handler mHandler;
 
-    private MainThreadImpl() {
+    @Inject
+    public MainThreadImpl() {
         mHandler = new Handler(Looper.getMainLooper());
     }
 

@@ -5,43 +5,51 @@ import com.victormartin.projectcawd.domain.executor.MainThread;
 import com.victormartin.projectcawd.domain.interactors.UserInteractor;
 import com.victormartin.projectcawd.presentation.presenters.base.AbstractPresenter;
 import com.victormartin.projectcawd.presentation.presenters.MainPresenter;
+import javax.inject.Inject;
 
-/**
- * Created by dmilicic on 12/13/15.
- */
-public class MainPresenterImpl extends AbstractPresenter implements MainPresenter, UserInteractor.Callback {
+public class MainPresenterImpl extends AbstractPresenter implements MainPresenter {
 
-    private MainPresenter.View mView;
+    private final UserInteractor userInteractor;
+    private MainPresenter.View view;
 
-    public MainPresenterImpl(Executor executor,
-                             MainThread mainThread,
-                             View view) {
+    @Inject
+    public MainPresenterImpl(
+            Executor executor,
+            MainThread mainThread,
+            UserInteractor userInteractor) {
         super(executor, mainThread);
-        mView = view;
+        this.userInteractor = userInteractor;
+    }
+
+    @Override
+    public void setView(View view) {
+        this.view = view;
     }
 
     @Override
     public void resume() {
+        //execution of use case
+        userInteractor.execute(new UserInteractor.Callback() {
 
+            @Override
+            public void onGetUserName(String name) {
+                //the result of execute use case
+            }
+
+            @Override
+            public void onError() { }
+        });
     }
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() { }
 
     @Override
-    public void stop() {
-
-    }
+    public void stop() { }
 
     @Override
-    public void destroy() {
-
-    }
+    public void destroy() { }
 
     @Override
-    public void onError(String message) {
-
-    }
+    public void onError(String message) { }
 }

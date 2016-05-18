@@ -5,7 +5,7 @@ import com.victormartin.projectcawd.domain.model.User;
 /**
  * A user repository with CRUD operations on a model.
  */
-public interface Repository {
+public interface UserRepository {
 
     boolean insert(User model);
 

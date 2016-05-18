@@ -9,6 +9,7 @@ import com.victormartin.projectcawd.domain.executor.MainThread;
  * reference to the Executor and MainThread objects that are needed for running interactors in a background thread.
  */
 public abstract class AbstractPresenter {
+
     protected Executor   mExecutor;
     protected MainThread mMainThread;
 

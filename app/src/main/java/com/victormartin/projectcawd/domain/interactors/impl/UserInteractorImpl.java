@@ -4,27 +4,47 @@ import com.victormartin.projectcawd.domain.executor.Executor;
 import com.victormartin.projectcawd.domain.executor.MainThread;
 import com.victormartin.projectcawd.domain.interactors.UserInteractor;
 import com.victormartin.projectcawd.domain.interactors.base.AbstractInteractor;
-import com.victormartin.projectcawd.domain.repository.Repository;
+import com.victormartin.projectcawd.domain.model.User;
+import com.victormartin.projectcawd.domain.repository.UserRepository;
+import javax.inject.Inject;
 
 /**
  * This is an interactor boilerplate with a reference to a model repository.
  * <p/>
  */
-public class UserInteractorImpl extends AbstractInteractor implements UserInteractor {
+public class UserInteractorImpl extends AbstractInteractor implements UserInteractor, Runnable {
 
-    private UserInteractor.Callback mCallback;
-    private Repository                mRepository;
+    protected Executor mThreadExecutor;
+    protected MainThread mMainThread;
 
-    public UserInteractorImpl(Executor threadExecutor,
-                              MainThread mainThread,
-                              Callback callback, Repository repository) {
-        super(threadExecutor, mainThread);
-        mCallback = callback;
-        mRepository = repository;
+    protected volatile boolean mIsCanceled;
+    protected volatile boolean mIsRunning;
+
+    private final Executor threadExecutor;
+    private UserInteractor.Callback callback;
+    private UserRepository repository;
+
+    @Inject
+    public UserInteractorImpl(
+            Executor threadExecutor,
+            MainThread mainThread,
+            UserRepository userRepository) {
+
+        this.threadExecutor = threadExecutor;
+        this.mMainThread = mainThread;
+        this.repository = userRepository;
     }
 
     @Override
     public void run() {
-        // TODO: Implement this with your business logic
+        //TODO: add callback to repository
+        User user = this.repository.get(1);
+        callback.onGetUserName(user.toString());
+    }
+
+    @Override
+    public void execute(Callback callback) {
+        this.callback = callback;
+        this.mThreadExecutor.execute(this);
     }
 }
