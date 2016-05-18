@@ -14,11 +14,7 @@ public class GetUserNameInteractor extends AbstractUseCase
     protected Executor mThreadExecutor;
     protected MainThread mMainThread;
 
-    protected volatile boolean mIsCanceled;
-    protected volatile boolean mIsRunning;
-
-    private final Executor threadExecutor;
-    private com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase.Callback callback;
+    private GetUserNameUseCase.Callback callback;
     private UserRepository repository;
 
     @Inject
@@ -27,7 +23,7 @@ public class GetUserNameInteractor extends AbstractUseCase
             MainThread mainThread,
             UserRepository userRepository) {
 
-        this.threadExecutor = threadExecutor;
+        this.mThreadExecutor = threadExecutor;
         this.mMainThread = mainThread;
         this.repository = userRepository;
     }
