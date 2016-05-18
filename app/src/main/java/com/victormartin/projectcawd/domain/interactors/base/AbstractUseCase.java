@@ -11,4 +11,4 @@ package com.victormartin.projectcawd.domain.interactors.base;
  * For example, when an activity is getting destroyed then we should probably cancel an interactor
  * but the request will come from the UI thread unless the request was specifically assigned to a background thread.
  */
-public abstract class AbstractInteractor implements Interactor { }
+public abstract class AbstractUseCase implements UseCase { }

@@ -10,22 +10,25 @@ public class UserDataRepository implements UserRepository {
     public UserDataRepository() { }
 
     @Override
-    public boolean insert(User model) {
-        return false;
+    public void insert(Callback callback, User model) { }
+
+    @Override
+    public void update(Callback callback, User model) { }
+
+    @Override
+    public void get(Callback callback, Object id) {
+            try {
+                User user = new User();
+                user.setEmail("jj@jj.com");
+                user.setId("yomismo");
+                user.setName("Juanito Jezuh");
+                user.setToken("añsldjfpwoiefpo");
+                callback.onSuccess(user);
+            } catch (Exception e) {
+                callback.onError();
+            }
     }
 
     @Override
-    public boolean update(User model) {
-        return false;
-    }
-
-    @Override
-    public User get(Object id) {
-        return null;
-    }
-
-    @Override
-    public boolean delete(User model) {
-        return false;
-    }
+    public void delete(Callback callback, User model) { }
 }

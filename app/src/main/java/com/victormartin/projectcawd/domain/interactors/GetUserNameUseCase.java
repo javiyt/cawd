@@ -1,8 +1,8 @@
 package com.victormartin.projectcawd.domain.interactors;
 
-import com.victormartin.projectcawd.domain.interactors.base.Interactor;
+public interface GetUserNameUseCase {
 
-public interface UserInteractor extends Interactor {
+    void execute(final Callback callback);
 
     interface Callback {
         void onGetUserName(String name);

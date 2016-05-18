@@ -7,11 +7,16 @@ import com.victormartin.projectcawd.domain.model.User;
  */
 public interface UserRepository {
 
-    boolean insert(User model);
+    void insert(Callback callback, User model);
 
-    boolean update(User model);
+    void update(Callback callback, User model);
 
-    User get(Object id);
+    void get(Callback callback, Object id);
 
-    boolean delete(User model);
+    void delete(Callback callback, User model);
+
+    interface Callback {
+        void onSuccess(User user);
+        void onError();
+    }
 }

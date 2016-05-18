@@ -1,24 +1,17 @@
 package com.victormartin.projectcawd.presentation.presenters.impl;
 
-import com.victormartin.projectcawd.domain.executor.Executor;
-import com.victormartin.projectcawd.domain.executor.MainThread;
-import com.victormartin.projectcawd.domain.interactors.UserInteractor;
-import com.victormartin.projectcawd.presentation.presenters.base.AbstractPresenter;
+import com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase;
 import com.victormartin.projectcawd.presentation.presenters.MainPresenter;
 import javax.inject.Inject;
 
-public class MainPresenterImpl extends AbstractPresenter implements MainPresenter {
+public class MainPresenterImpl implements MainPresenter {
 
-    private final UserInteractor userInteractor;
+    private final GetUserNameUseCase getUserNameUseCase;
     private MainPresenter.View view;
 
     @Inject
-    public MainPresenterImpl(
-            Executor executor,
-            MainThread mainThread,
-            UserInteractor userInteractor) {
-        super(executor, mainThread);
-        this.userInteractor = userInteractor;
+    public MainPresenterImpl(GetUserNameUseCase getUserNameUseCase) {
+        this.getUserNameUseCase = getUserNameUseCase;
     }
 
     @Override
@@ -29,7 +22,7 @@ public class MainPresenterImpl extends AbstractPresenter implements MainPresente
     @Override
     public void resume() {
         //execution of use case
-        userInteractor.execute(new UserInteractor.Callback() {
+        getUserNameUseCase.execute(new GetUserNameUseCase.Callback() {
 
             @Override
             public void onGetUserName(String name) {
