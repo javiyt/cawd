@@ -4,8 +4,6 @@ This is starter template for writing Android apps using **Clean architecture**.
 
 This starter app supports **API 15 and above**.
 
-This template uses **regular Java** instead of RxJava and does not use Dagger. Although I recommend Dagger, the reason for this is that I did not want to add more complexity as the architecture itself is probably complex enough to understand. If you prefer RxJava and Dagger then you can look at an awesome project called [Android-CleanArchitecture] that also inspired me to create this.
-
 ## Some of the Libraries included
 
  - [Android Support Library] for backwards compatibility.
