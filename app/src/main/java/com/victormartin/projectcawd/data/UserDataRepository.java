@@ -1,13 +1,18 @@
 package com.victormartin.projectcawd.data;
 
+import com.victormartin.projectcawd.data.datasource.CloudUserDataSource;
 import com.victormartin.projectcawd.domain.model.User;
 import com.victormartin.projectcawd.domain.repository.UserRepository;
 import javax.inject.Inject;
 
 public class UserDataRepository implements UserRepository {
 
+    CloudUserDataSource userDataSource;
+
     @Inject
-    public UserDataRepository() { }
+    public UserDataRepository(CloudUserDataSource userDataSource) {
+        this.userDataSource = userDataSource;
+    }
 
     @Override
     public void insert(Callback callback, User model) { }
@@ -17,16 +22,12 @@ public class UserDataRepository implements UserRepository {
 
     @Override
     public void get(Callback callback, Object id) {
-            try {
-                User user = new User();
-                user.setEmail("jj@jj.com");
-                user.setId("yomismo");
-                user.setName("Juanito Jezuh");
-                user.setToken("añsldjfpwoiefpo");
-                callback.onSuccess(user);
-            } catch (Exception e) {
-                callback.onError();
-            }
+        try {
+            User user = userDataSource.getUser();
+            callback.onSuccess(user);
+        } catch (Exception e) {
+            callback.onError();
+        }
     }
 
     @Override
