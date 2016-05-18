@@ -1,9 +1,9 @@
 package com.victormartin.projectcawd;
 
 import android.app.Application;
-import com.victormartin.projectcawd.base.di.ApplicationComponent;
-import com.victormartin.projectcawd.base.di.ApplicationModule;
-import com.victormartin.projectcawd.base.di.DaggerApplicationComponent;
+import com.victormartin.projectcawd.base.di.component.ApplicationComponent;
+import com.victormartin.projectcawd.base.di.component.DaggerApplicationComponent;
+import com.victormartin.projectcawd.base.di.module.ApplicationModule;
 import timber.log.Timber;
 import timber.log.Timber.DebugTree;
 

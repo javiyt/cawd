@@ -1,10 +1,15 @@
-package com.victormartin.projectcawd.base.di;
+package com.victormartin.projectcawd.base.di.module;
 
 import android.app.Activity;
+import com.victormartin.projectcawd.presentation.di.PresentationModule;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module(
+        includes = {
+                PresentationModule.class
+        }
+)
 public class ActivityModule {
 
     private final Activity activity;
