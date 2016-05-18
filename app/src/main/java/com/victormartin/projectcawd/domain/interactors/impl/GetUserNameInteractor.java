@@ -2,17 +2,13 @@ package com.victormartin.projectcawd.domain.interactors.impl;
 
 import com.victormartin.projectcawd.domain.executor.Executor;
 import com.victormartin.projectcawd.domain.executor.MainThread;
-import com.victormartin.projectcawd.domain.interactors.UserInteractor;
-import com.victormartin.projectcawd.domain.interactors.base.AbstractInteractor;
+import com.victormartin.projectcawd.domain.interactors.base.AbstractUseCase;
 import com.victormartin.projectcawd.domain.model.User;
 import com.victormartin.projectcawd.domain.repository.UserRepository;
 import javax.inject.Inject;
 
-/**
- * This is an interactor boilerplate with a reference to a model repository.
- * <p/>
- */
-public class UserInteractorImpl extends AbstractInteractor implements UserInteractor, Runnable {
+public class GetUserNameInteractor extends AbstractUseCase
+        implements com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase, Runnable {
 
     protected Executor mThreadExecutor;
     protected MainThread mMainThread;
@@ -21,11 +17,11 @@ public class UserInteractorImpl extends AbstractInteractor implements UserIntera
     protected volatile boolean mIsRunning;
 
     private final Executor threadExecutor;
-    private UserInteractor.Callback callback;
+    private com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase.Callback callback;
     private UserRepository repository;
 
     @Inject
-    public UserInteractorImpl(
+    public GetUserNameInteractor(
             Executor threadExecutor,
             MainThread mainThread,
             UserRepository userRepository) {

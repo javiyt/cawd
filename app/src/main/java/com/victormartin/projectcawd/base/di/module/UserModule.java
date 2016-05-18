@@ -1,8 +1,8 @@
 package com.victormartin.projectcawd.base.di.module;
 
 import com.victormartin.projectcawd.base.di.PerActivity;
-import com.victormartin.projectcawd.domain.interactors.UserInteractor;
-import com.victormartin.projectcawd.domain.interactors.impl.UserInteractorImpl;
+import com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase;
+import com.victormartin.projectcawd.domain.interactors.impl.GetUserNameInteractor;
 import dagger.Module;
 import dagger.Provides;
 
@@ -13,7 +13,7 @@ public class UserModule {
 
     @Provides
     @PerActivity
-    UserInteractor provideUserInteractor(UserInteractorImpl interactor) {
+    GetUserNameUseCase provideUserInteractor(GetUserNameInteractor interactor) {
         return interactor;
     }
 }
