@@ -5,43 +5,36 @@ import com.victormartin.projectcawd.domain.executor.MainThread;
 import com.victormartin.projectcawd.domain.interactors.UserInteractor;
 import com.victormartin.projectcawd.presentation.presenters.base.AbstractPresenter;
 import com.victormartin.projectcawd.presentation.presenters.MainPresenter;
+import javax.inject.Inject;
 
-/**
- * Created by dmilicic on 12/13/15.
- */
 public class MainPresenterImpl extends AbstractPresenter implements MainPresenter, UserInteractor.Callback {
 
-    private MainPresenter.View mView;
+    private MainPresenter.View view;
 
-    public MainPresenterImpl(Executor executor,
-                             MainThread mainThread,
-                             View view) {
+    @Inject
+    public MainPresenterImpl(
+            Executor executor,
+            MainThread mainThread) {
         super(executor, mainThread);
-        mView = view;
     }
 
     @Override
-    public void resume() {
-
+    public void setView(View view) {
+        this.view = view;
     }
 
     @Override
-    public void pause() {
-
-    }
+    public void resume() { }
 
     @Override
-    public void stop() {
-
-    }
+    public void pause() { }
 
     @Override
-    public void destroy() {
-
-    }
+    public void stop() { }
 
     @Override
-    public void onError(String message) {
+    public void destroy() { }
 
-    }
+    @Override
+    public void onError(String message) { }
 }
