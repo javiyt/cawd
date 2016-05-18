@@ -4,7 +4,7 @@ import com.victormartin.projectcawd.domain.executor.Executor;
 import com.victormartin.projectcawd.domain.executor.MainThread;
 import com.victormartin.projectcawd.domain.interactors.UserInteractor;
 import com.victormartin.projectcawd.domain.interactors.base.AbstractInteractor;
-import com.victormartin.projectcawd.domain.repository.Repository;
+import com.victormartin.projectcawd.domain.repository.UserRepository;
 
 /**
  * This is an interactor boilerplate with a reference to a model repository.
@@ -13,14 +13,14 @@ import com.victormartin.projectcawd.domain.repository.Repository;
 public class UserInteractorImpl extends AbstractInteractor implements UserInteractor {
 
     private UserInteractor.Callback mCallback;
-    private Repository                mRepository;
+    private UserRepository mUserRepository;
 
     public UserInteractorImpl(Executor threadExecutor,
                               MainThread mainThread,
-                              Callback callback, Repository repository) {
+                              Callback callback, UserRepository userRepository) {
         super(threadExecutor, mainThread);
         mCallback = callback;
-        mRepository = repository;
+        mUserRepository = userRepository;
     }
 
     @Override
