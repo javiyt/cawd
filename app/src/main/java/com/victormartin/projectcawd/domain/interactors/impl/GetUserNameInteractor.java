@@ -2,13 +2,14 @@ package com.victormartin.projectcawd.domain.interactors.impl;
 
 import com.victormartin.projectcawd.domain.executor.Executor;
 import com.victormartin.projectcawd.domain.executor.MainThread;
+import com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase;
 import com.victormartin.projectcawd.domain.interactors.base.AbstractUseCase;
 import com.victormartin.projectcawd.domain.model.User;
 import com.victormartin.projectcawd.domain.repository.UserRepository;
 import javax.inject.Inject;
 
 public class GetUserNameInteractor extends AbstractUseCase
-        implements com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase, Runnable {
+        implements GetUserNameUseCase, Runnable {
 
     protected Executor mThreadExecutor;
     protected MainThread mMainThread;
