@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View {
     protected void onResume() {
         super.onResume();
         presenter.setView(this);
+        presenter.resume();
     }
 
     @Override

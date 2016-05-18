@@ -34,13 +34,10 @@ public class MainPresenterImpl extends AbstractPresenter implements MainPresente
             @Override
             public void onGetUserName(String name) {
                 //the result of execute use case
-
             }
 
             @Override
-            public void onError() {
-
-            }
+            public void onError() { }
         });
     }
 
