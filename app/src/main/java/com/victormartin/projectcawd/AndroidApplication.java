@@ -26,4 +26,8 @@ public class AndroidApplication extends Application {
                 .applicationModule(new ApplicationModule(this))
                 .build();
     }
+
+    public ApplicationComponent getApplicationComponent() {
+        return applicationComponent;
+    }
 }
