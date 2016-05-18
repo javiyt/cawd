@@ -30,14 +30,40 @@ public class GetUserNameInteractor extends AbstractUseCase
 
     @Override
     public void run() {
-        //TODO: add callback to repository
-        User user = this.repository.get(1);
-        callback.onGetUserName(user.toString());
+        this.repository.get(new UserRepository.Callback() {
+            @Override
+            public void onSuccess(User user) {
+                notifyOnSuccess(user);
+            }
+
+            @Override
+            public void onError() {
+                notifyOnError();
+            }
+        }, null);
     }
 
     @Override
     public void execute(Callback callback) {
         this.callback = callback;
         this.mThreadExecutor.execute(this);
+    }
+
+    private void notifyOnSuccess(final User user) {
+        mMainThread.post(new Runnable() {
+            @Override
+            public void run() {
+                callback.onGetUserName(user.getName());
+            }
+        });
+    }
+
+    protected void notifyOnError() {
+        mMainThread.post(new Runnable() {
+            @Override
+            public void run() {
+                callback.onError();
+            }
+        });
     }
 }
