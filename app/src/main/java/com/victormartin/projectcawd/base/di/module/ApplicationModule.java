@@ -5,7 +5,7 @@ import android.content.Context;
 import com.victormartin.projectcawd.domain.executor.Executor;
 import com.victormartin.projectcawd.domain.executor.MainThread;
 import com.victormartin.projectcawd.domain.executor.impl.ThreadExecutor;
-import com.victormartin.projectcawd.threading.MainThreadImpl;
+import com.victormartin.projectcawd.base.threading.MainThreadImpl;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
