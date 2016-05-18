@@ -1,13 +1,15 @@
 package com.victormartin.projectcawd.base.di.module;
 
 import android.app.Activity;
+import com.victormartin.projectcawd.data.di.RepositoriesModule;
 import com.victormartin.projectcawd.presentation.di.PresentationModule;
 import dagger.Module;
 import dagger.Provides;
 
 @Module(
         includes = {
-                PresentationModule.class
+                PresentationModule.class,
+                RepositoriesModule.class
         }
 )
 public class ActivityModule {
