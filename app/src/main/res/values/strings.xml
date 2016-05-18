@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Project CAWD</string>
+    <string name="desc_name">Clean Architecture With Dagger</string>
+</resources>
