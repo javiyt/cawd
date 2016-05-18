@@ -7,15 +7,18 @@ import com.victormartin.projectcawd.presentation.presenters.base.AbstractPresent
 import com.victormartin.projectcawd.presentation.presenters.MainPresenter;
 import javax.inject.Inject;
 
-public class MainPresenterImpl extends AbstractPresenter implements MainPresenter, UserInteractor.Callback {
+public class MainPresenterImpl extends AbstractPresenter implements MainPresenter {
 
+    private final UserInteractor userInteractor;
     private MainPresenter.View view;
 
     @Inject
     public MainPresenterImpl(
             Executor executor,
-            MainThread mainThread) {
+            MainThread mainThread,
+            UserInteractor userInteractor) {
         super(executor, mainThread);
+        this.userInteractor = userInteractor;
     }
 
     @Override
@@ -24,7 +27,22 @@ public class MainPresenterImpl extends AbstractPresenter implements MainPresente
     }
 
     @Override
-    public void resume() { }
+    public void resume() {
+        //execution of use case
+        userInteractor.execute(new UserInteractor.Callback() {
+
+            @Override
+            public void onGetUserName(String name) {
+                //the result of execute use case
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+    }
 
     @Override
     public void pause() { }
