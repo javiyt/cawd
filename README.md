@@ -1,12 +1,10 @@
 # Overview
 
-This is starter template for writing Android apps using **Clean architecture**. You can download it, modify it and start building your apps on top of it. Most of the boilerplate code for writing your first view, presenter and interactor is already written and you just need to implement your own logic. I wrote a [detailed guide] on how to write apps using this pattern but this README contains the summary.
+This is starter template for writing Android apps using **Clean architecture**.
 
 This starter app supports **API 15 and above**.
 
 This template uses **regular Java** instead of RxJava and does not use Dagger. Although I recommend Dagger, the reason for this is that I did not want to add more complexity as the architecture itself is probably complex enough to understand. If you prefer RxJava and Dagger then you can look at an awesome project called [Android-CleanArchitecture] that also inspired me to create this.
-
-To see a sample app using Clean Architecture you can look [here].
 
 ## Some of the Libraries included
 
