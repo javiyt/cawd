@@ -1,6 +1,6 @@
 # Overview
 
-This is starter template for writing Android apps using **Clean architecture**.
+This is starter template for writing Android apps using **Clean architecture** and Dependencies Injection with **Dagger 2**.
 
 This starter app supports **API 15 and above**.
 
