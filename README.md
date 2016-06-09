@@ -11,7 +11,7 @@ This starter app supports **API 15 and above**.
  - [Butterknife] for view injection.
  - [Retrofit] for network code.
  - [JUnit] and [Mockito] for testing.
- - [Findbugs] for finding bugs, *duh*.
+ - [Findbugs] for finding bugs, lol
 
 
 # License
