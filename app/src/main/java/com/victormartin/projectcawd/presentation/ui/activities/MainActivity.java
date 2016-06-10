@@ -6,12 +6,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.victormartin.projectcawd.AndroidApplication;
 import com.victormartin.projectcawd.R;
+import com.victormartin.projectcawd.base.di.HasComponent;
 import com.victormartin.projectcawd.base.di.component.ApplicationComponent;
-import com.victormartin.projectcawd.base.di.component.DaggerActivityComponent;
+import com.victormartin.projectcawd.base.di.component.DaggerUserComponent;
+import com.victormartin.projectcawd.base.di.component.UserComponent;
 import com.victormartin.projectcawd.base.di.module.ActivityModule;
+import com.victormartin.projectcawd.base.di.module.UserModule;
 import com.victormartin.projectcawd.presentation.ui.fragments.MainFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HasComponent<UserComponent> {
+
+    private UserComponent userComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onInitializeInjection() {
-        DaggerActivityComponent.builder()
+        this.userComponent = DaggerUserComponent.builder()
                 .applicationComponent(getApplicationComponent())
-                .activityModule(new ActivityModule(this))
-                .build()
-                .inject(this);
+                .activityModule(getActivityModule())
+                .userModule(new UserModule())
+                .build();
+    }
+
+    protected ActivityModule getActivityModule() {
+        return new ActivityModule(this);
     }
 
     public ApplicationComponent getApplicationComponent() {
@@ -47,5 +56,10 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
         fragmentTransaction.add(containerViewId, fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public UserComponent getComponent() {
+        return userComponent;
     }
 }

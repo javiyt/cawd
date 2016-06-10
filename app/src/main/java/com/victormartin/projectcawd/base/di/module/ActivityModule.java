@@ -1,6 +1,7 @@
 package com.victormartin.projectcawd.base.di.module;
 
 import android.app.Activity;
+import com.victormartin.projectcawd.base.di.PerActivity;
 import com.victormartin.projectcawd.data.di.ApiModule;
 import com.victormartin.projectcawd.data.di.DatasourcesModule;
 import com.victormartin.projectcawd.data.di.RepositoriesModule;
@@ -24,8 +25,8 @@ public class ActivityModule {
         this.activity = activity;
     }
 
-    @Provides
-    Activity provideActivity() {
+    @Provides @PerActivity
+    Activity activity() {
         return this.activity;
     }
 }
