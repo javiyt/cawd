@@ -4,7 +4,7 @@ import com.victormartin.projectcawd.domain.model.User;
 
 public interface UserDataSource {
 
-    User getUser();
+    User loginUser(String identifier, String password);
 }
 
 

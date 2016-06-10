@@ -2,23 +2,25 @@ package com.victormartin.projectcawd.domain.interactors.impl;
 
 import com.victormartin.projectcawd.domain.executor.Executor;
 import com.victormartin.projectcawd.domain.executor.MainThread;
-import com.victormartin.projectcawd.domain.interactors.GetUserNameUseCase;
 import com.victormartin.projectcawd.domain.interactors.base.AbstractUseCase;
 import com.victormartin.projectcawd.domain.model.User;
 import com.victormartin.projectcawd.domain.repository.UserRepository;
 import javax.inject.Inject;
 
-public class GetUserNameInteractor extends AbstractUseCase
-        implements GetUserNameUseCase, Runnable {
+public class LoginUser extends AbstractUseCase
+        implements com.victormartin.projectcawd.domain.interactors.LoginUser, Runnable {
 
     protected Executor mThreadExecutor;
     protected MainThread mMainThread;
 
-    private GetUserNameUseCase.Callback callback;
+    private com.victormartin.projectcawd.domain.interactors.LoginUser.Callback callback;
     private UserRepository repository;
 
+    private String identifier;
+    private String password;
+
     @Inject
-    public GetUserNameInteractor(
+    public LoginUser(
             Executor threadExecutor,
             MainThread mainThread,
             UserRepository userRepository) {
@@ -30,7 +32,7 @@ public class GetUserNameInteractor extends AbstractUseCase
 
     @Override
     public void run() {
-        this.repository.get(new UserRepository.Callback() {
+        this.repository.loginUser(new UserRepository.Callback() {
             @Override
             public void onSuccess(User user) {
                 notifyOnSuccess(user);
@@ -40,7 +42,7 @@ public class GetUserNameInteractor extends AbstractUseCase
             public void onError() {
                 notifyOnError();
             }
-        }, null);
+        }, identifier, password);
     }
 
     @Override
@@ -53,7 +55,7 @@ public class GetUserNameInteractor extends AbstractUseCase
         mMainThread.post(new Runnable() {
             @Override
             public void run() {
-                callback.onGetUserName(user.getName());
+                callback.onLoginUser(user);
             }
         });
     }
@@ -65,5 +67,15 @@ public class GetUserNameInteractor extends AbstractUseCase
                 callback.onError();
             }
         });
+    }
+
+    @Override
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    @Override
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -14,7 +14,7 @@ public class CloudUserDataSource implements UserDataSource {
     }
 
     @Override
-    public User getUser() {
-        return api.getUser();
+    public User loginUser(String identifier, String password) {
+        return api.loginUser(identifier, password);
     }
 }

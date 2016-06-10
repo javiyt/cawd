@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 public class UserDataRepository implements UserRepository {
 
-    CloudUserDataSource userDataSource;
+    private CloudUserDataSource userDataSource;
 
     @Inject
     public UserDataRepository(CloudUserDataSource userDataSource) {
@@ -21,9 +21,9 @@ public class UserDataRepository implements UserRepository {
     public void update(Callback callback, User model) { }
 
     @Override
-    public void get(Callback callback, Object id) {
+    public void loginUser(Callback callback, String identifier, String password) {
         try {
-            User user = userDataSource.getUser();
+            User user = userDataSource.loginUser(identifier, password);
             callback.onSuccess(user);
         } catch (Exception e) {
             callback.onError();

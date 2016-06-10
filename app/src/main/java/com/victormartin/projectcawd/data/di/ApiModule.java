@@ -1,7 +1,7 @@
 package com.victormartin.projectcawd.data.di;
 
 import com.victormartin.projectcawd.data.api.UserApi;
-import com.victormartin.projectcawd.data.api.UserRetrofitApi;
+import com.victormartin.projectcawd.data.api.UserApiImpl;
 import dagger.Module;
 import dagger.Provides;
 
@@ -9,7 +9,7 @@ import dagger.Provides;
 public class ApiModule {
 
     @Provides
-    UserApi provideUserApi(UserRetrofitApi userRetrofitApi) {
-        return userRetrofitApi;
+    UserApi provideUserApi(UserApiImpl userApiImpl) {
+        return userApiImpl;
     }
 }

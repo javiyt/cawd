@@ -38,6 +38,13 @@ public class MainFragment extends Fragment implements MainPresenter.View {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         presenter.setView(this);
+        presenter.initialize();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         presenter.resume();
     }
 
@@ -60,5 +67,25 @@ public class MainFragment extends Fragment implements MainPresenter.View {
     @SuppressWarnings("unchecked")
     protected <C> C getComponent(Class<C> componentType) {
         return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
+    }
+
+    @Override
+    public void showFuckingError() {
+        //TODO: TOUCH THE VIEW TO SHOW DE ERROR
+    }
+
+    @Override
+    public void showToken(String token) {
+        //TODO TOUCH THE VIEW
+    }
+
+    @Override
+    public void showErrorInvalidEmail() {
+        //TODO: TOUCH THE VIEW
+    }
+
+    @Override
+    public void enablePassword() {
+
     }
 }
