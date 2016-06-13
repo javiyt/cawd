@@ -14,24 +14,15 @@ import retrofit2.http.POST;
 
 public class UserApiImpl implements UserApi {
 
-    private static final String BASE_URL = "www.google.com";
-
-    //TODO: THIS COULD BE EXTRACT TO AN OUTER IFACE
-    public interface UserEndpoint {
-        @POST("/auth/local")
-        Call<User> loginUser(@Body LoginRequestEntity userId);
-    }
-
     @Inject
     public UserApiImpl() { }
 
     @Override
-    public User loginUser() {
+    public User loginUser(String identifier, String password) {
         Retrofit retrofitBuilder = getRetrofitBuilder();
-        UserEndpoint userRetrofitApi = retrofitBuilder.create(UserEndpoint.class);
+        UserRetrofitApi userRetrofitApi = retrofitBuilder.create(UserRetrofitApi.class);
 
         LoginRequestEntity loginRequestEntity = new LoginRequestEntity();
-
 
         Call<User> call = userRetrofitApi.loginUser(loginRequestEntity);
         Response<User> response = null;

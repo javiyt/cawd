@@ -1,7 +1,7 @@
 package com.victormartin.projectcawd.domain.model;
 
 /**
- * Created by victo on 18/05/2016.
+ * Created by Víctor Javier Martín on 18/05/2016.
  *
  * It combines the functionality of @ToString, @EqualsAndHashCode, @Getter and @Setter.
  */
@@ -33,7 +33,7 @@ public class User {
     }
 
     public void setToken(String token) {
-        this.token = token;
+        this.token =  "BEARER " + token;
     }
 
     public String getId() {
