@@ -7,8 +7,10 @@ public class EmailCheckerTest {
 
     @Test
     public void testIsValidMail(){
-        EmailChecker emailChecker = new EmailChecker("20158402K");
-        final boolean valid = emailChecker.isValid();
-        Assert.assertTrue(valid);
+
+
+        EmailChecker emailChecker2 = new EmailChecker("victor");
+        final boolean valid2 = emailChecker2.isValid();
+        Assert.assertFalse(valid2);
     }
 }
