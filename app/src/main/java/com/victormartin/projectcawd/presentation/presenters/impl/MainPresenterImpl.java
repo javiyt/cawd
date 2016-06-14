@@ -1,5 +1,6 @@
 package com.victormartin.projectcawd.presentation.presenters.impl;
 
+import com.orhanobut.hawk.Hawk;
 import com.victormartin.projectcawd.domain.interactors.LoginUser;
 import com.victormartin.projectcawd.domain.model.User;
 import com.victormartin.projectcawd.presentation.presenters.MainPresenter;
@@ -32,9 +33,36 @@ public class MainPresenterImpl implements MainPresenter {
 
         if (!valid) {
             view.showErrorInvalidEmail();
-        } else {
+        } /*else {
             view.enablePassword();
+        }*/
+    }
 
+    @Override
+    public void validatePassword() {
+        PasswordChecker checker = new PasswordChecker(password);
+        boolean valid = checker.isValid();
+
+        if (!valid) {
+            view.showErrorInvalidPassword();
+        } else {
+            view.enableLoginButton();
+        }
+
+    }
+
+    @Override
+    public void validateCredentials() {
+        PasswordChecker checkerPassword = new PasswordChecker(password);
+        EmailChecker checkerEmail = new EmailChecker(identifier);
+        boolean validPassword = checkerPassword.isValid();
+        boolean validEmail = checkerEmail.isValid();
+
+        if(validEmail && validPassword){
+            view.enableLoginButton();
+        }else{
+            view.authError();
+            view.disableLoginButton();
         }
     }
 
@@ -43,18 +71,6 @@ public class MainPresenterImpl implements MainPresenter {
         this.identifier = identifier;
         this.password = password;
 
-        //TODO: validate data
-
-        EmailChecker checker = new EmailChecker(identifier);
-        boolean valid = checker.isValid();
-
-        if (!valid) {
-            view.showErrorInvalidEmail();
-        } else {
-            //TODO: VALIDATE PASS
-
-        }
-
         loginUser.setIdentifier(this.identifier);
         loginUser.setPassword(this.password);
 
@@ -62,15 +78,16 @@ public class MainPresenterImpl implements MainPresenter {
         loginUser.execute(new LoginUser.Callback() {
 
             @Override
-            public void onLoginUser(User name) {
+            public void onLoginUser(User user) {
 
-                view.showToken(name.getToken());
+                Hawk.put("USER", user);
+                view.authSuccessful(user);
                 //the result of execute use case
             }
 
             @Override
             public void onError() {
-                view.showFuckingError();
+                view.authError();
             }
         });
     }

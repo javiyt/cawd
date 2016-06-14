@@ -1,4 +1,63 @@
 <resources>
-    <string name="app_name">Project CAWD</string>
-    <string name="desc_name">Clean Architecture With Dagger</string>
+
+    <string name="app_name">Time and Expenses Tool</string>
+    <string name="titulo_proyecto">TITULO</string>
+    <string name="description_project">DESCRIPCION</string>
+    <string name="empty_hour">0 horas\n0 minutos</string>
+
+    <string name="empty" />
+
+    <string name="IDENTIFIER_TITLE_STRING">Email</string>
+    <string name="IDENTIFIER_PLACEHOLDER_STRING">Introduce tu email de Quantion</string>
+    <string name="PASSWORD_TITLE_STRING">Contraseña</string>
+    <string name="PASSWORD_PLACEHOLDER_STRING">Introduce tu contraseña de Quantion</string>
+
+    <string name="LOGIN_BUTTON_STRING">INICIAR SESIÓN</string>
+    <string name="ALERT_CREDENCIALES_INCORRECTAS_TITLE_STRING">Aviso</string>
+    <string name="ALERT_CREDENCIALES_INCORRECTAS_CONTENT_STRING">Credenciales incorrectas</string>
+    <string name="INCURRIR_TIEMPO_TITLE_STRING">Incurrir Tiempo</string>
+    <string name="LOGOUT_HEADER_BUTTON_TITLE_STRING">Cerrar Sesión</string>
+    <string name="SEND_HEADER_BUTTON_TITLE_STRING">Enviar</string>
+    <string name="PROYECTOS_TITLE_STRING">Proyectos</string>
+    <string name="PROYECTOS_PLACEHOLDER_STRING">Selecciona un proyecto</string>
+    <string name="TAREAS_TITLE_STRING">Tareas</string>
+    <string name="TAREAS_PLACEHOLDER_STRING">Selecciona una tarea</string>
+    <string name="HORAS_TITLE_STRING">Horas</string>
+    <string name="HORAS_PLACEHOLDER_STRING">Selecciona el tiempo invertido</string>
+    <string name="DESCRIPCION_TITLE_STRING">Descripción</string>
+    <string name="DESCRIPCION_PLACEHOLDER_STRING">Escribe una breve descipción</string>
+    <string name="ALERT_EMPTY_TIEMPO_A_INCURRIR_TITLE_STRING">Campos vacíos</string>
+    <string name="ALERT_EMPTY_TIEMPO_A_INCURRIR_CONTENT_STRING">Uno o más campos obligatorios estan vacíos. Para incurrir un tiempo rellena todos los campos obligatorios</string>
+    <string name="OPTIONAL_STRING">Opcional</string>
+    <string name="HORA_STRING">hora</string>
+    <string name="HORAS_STRING">horas</string>
+    <string name="MINUTO_STRING">minuto</string>
+    <string name="MINUTOS_STRING">minutos</string>
+    <string name="TIEMPO_INCURRIDO_TITLE_STRING">Tiempo Incurrido</string>
+    <string name="TIEMPO_INCURRIDO_MAIN_TEXT_STRING">Se ha incurrido el tiempo correctamente con la siguiente información:</string>
+    <string name="TIEMPO_INCURRIDO_VOLVER_INCURRIR_BUTTON_STRING">Volver a incurrir tiempo</string>
+    <string name="ALERT_ERROR_TITLE_STRING">Error de la aplicación</string>
+    <string name="ALERT_ERROR_CONTENT_STRING">Para más detalles ponte en contacto con el administrador</string>
+    <string name="ALERT_INTERNET_CONNECTION_FAILED_TITLE_STRING">Falló la conexión a Internet</string>
+    <string name="ALERT_INTERNET_CONNECTION_FAILED_CONTENT_STRING">La conexión a Internet en su dispositivo falló. Por favor, compruebelo e intente de nuevo</string>
+    <string name="ALERT_OK_TITLE_BUTTON_STRING">OK</string>
+    <string name="PROYECTO_CAPITALIZED_STRING">Proyecto</string>
+    <string name="TAREA_CAPITALIZED_STRING">Tarea</string>
+    <string name="HORAS_CAPITALIZED_STRING">Horas</string>
+    <string name="DESCRIPCION_CAPITALIZED_STRING">Descripción</string>
+    <string name="VOLVER_A_INCURRIR_TIEMPO_BUTTON_STRING">VOLVER A INCURRIR TIEMPO</string>
+    <string name="ADMINISTRAR_TITLE_STRING">Administrar</string>
+    <string name="DETALLE_TITLE_STRING">Detalle</string>
+    <string name="REMOVE_TITLE_BUTTON_STRING">Borrar</string>
+    <string name="ALERT_TIME_OUT_TITLE_BUTTON_STRING">Tiempo de espera agotado</string>
+    <string name="ALERT_TIME_OUT_CONTENT_BUTTON_STRING">Tiempo de espera agotado</string>
+    <string name="NO_PROJECTS_FOUND_STRING">No hay proyectos disponibles</string>
+    <string name="NO_TASKS_FOUND_STRING">No hay tareas disponibles</string>
+    <string name="NO_HOURS_FOUND_STRING">No hay horas disponibles</string>
+    <string name="NO_PROJECT_INCURRED_STRING">No hay proyecto incurrido</string>
+
+    <string name="LGN_AUTHENTICATING">Autenticando...</string>
+    <string name="LGN_SUCCESS">ACCESO CORRECTO</string>
+    <string name="LGN_ERROR">ACCESO ERRÓNEO</string>
+    <string name="CANCEL">CANCELAR</string>
 </resources>

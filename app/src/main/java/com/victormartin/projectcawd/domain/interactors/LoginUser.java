@@ -11,7 +11,7 @@ public interface LoginUser {
     void execute(final Callback callback);
 
     interface Callback {
-        void onLoginUser(User name);
+        void onLoginUser(User user);
         void onError();
     }
 }

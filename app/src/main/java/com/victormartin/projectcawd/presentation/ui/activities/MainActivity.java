@@ -12,7 +12,7 @@ import com.victormartin.projectcawd.base.di.component.DaggerUserComponent;
 import com.victormartin.projectcawd.base.di.component.UserComponent;
 import com.victormartin.projectcawd.base.di.module.ActivityModule;
 import com.victormartin.projectcawd.base.di.module.UserModule;
-import com.victormartin.projectcawd.presentation.ui.fragments.MainFragment;
+import com.victormartin.projectcawd.presentation.ui.fragments.LoginFragment;
 
 public class MainActivity extends AppCompatActivity implements HasComponent<UserComponent> {
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements HasComponent<User
         onInitializeInjection();
 
         if (savedInstanceState == null) {
-            addFragment(R.id.fragmentContainer, new MainFragment());
+            addFragment(R.id.fragmentContainer, new LoginFragment());
         }
     }
 

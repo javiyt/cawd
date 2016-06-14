@@ -17,7 +17,6 @@ public class UserApiImpl implements UserApi {
 
     @Override
     public User loginUser(String identifier, String password) {
-
         Retrofit retrofitBuilder = getRetrofitBuilder();
         UserRetrofitApi userRetrofitApi = retrofitBuilder.create(UserRetrofitApi.class);
 
