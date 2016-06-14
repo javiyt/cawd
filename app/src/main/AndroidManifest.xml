@@ -2,6 +2,8 @@
 <manifest package="com.victormartin.projectcawd"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name="com.victormartin.projectcawd.AndroidApplication"
         android:allowBackup="true"

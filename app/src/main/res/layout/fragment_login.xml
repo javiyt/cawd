@@ -40,7 +40,9 @@
             android:textSize="@dimen/subtitle_text_size"
             android:hint="@string/IDENTIFIER_PLACEHOLDER_STRING"
             android:textColor="@color/blue_quantion"
-            android:layout_below="@+id/login_label_email" />
+            android:layout_below="@+id/login_label_email"
+            android:text="victor.martin@quantion.com"
+            />
 
         <TextView
             android:id="@+id/login_label_password"
@@ -61,7 +63,9 @@
             android:hint="@string/PASSWORD_PLACEHOLDER_STRING"
             android:textColor="@color/blue_quantion"
             android:layout_below="@+id/login_label_password"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:text="victor1234"
+            />
 
         <com.dd.processbutton.iml.ActionProcessButton
             android:id="@+id/btn_login"

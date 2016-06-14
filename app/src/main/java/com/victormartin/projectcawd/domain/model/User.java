@@ -7,25 +7,19 @@ package com.victormartin.projectcawd.domain.model;
  */
 public class User {
 
-    private String name;
-    private String email;
+    private UserData userData;
+
+    //private String name;
+    //private String email;
     private String token;
-    private String id;
+    //private String id;
 
-    public String getName() {
-        return name;
+    public UserData getUserData() {
+        return userData;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserData(UserData userData) {
+        this.userData = userData;
     }
 
     public String getToken() {
@@ -33,14 +27,6 @@ public class User {
     }
 
     public void setToken(String token) {
-        this.token =  "BEARER " + token;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.token = token;
     }
 }

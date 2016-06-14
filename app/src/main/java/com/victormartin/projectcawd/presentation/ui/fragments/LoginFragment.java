@@ -118,7 +118,7 @@ public class LoginFragment extends Fragment implements MainPresenter.View {
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        login_password.setText("");
+                        //login_password.setText("");
                         dialog.dismiss();
                     }
                 })
@@ -158,7 +158,7 @@ public class LoginFragment extends Fragment implements MainPresenter.View {
                 .contentGravity(GravityEnum.CENTER)
                 .buttonsGravity(GravityEnum.END)
                 .title(getString(R.string.ALERT_CREDENCIALES_INCORRECTAS_TITLE_STRING))
-                .content("" + user.getId() + "\n" + user.getEmail() + "\n" + user.getName() + "\n" + user.getToken())
+                //.content("" + user.getId() + "\n" + user.getEmail() + "\n" + user.getName() + "\n" + user.getToken())
                 .positiveText(getString(R.string.DETALLE_TITLE_STRING))
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
@@ -184,7 +184,7 @@ public class LoginFragment extends Fragment implements MainPresenter.View {
 
             @Override
             public void afterTextChanged(Editable s) {
-                presenter.validateEmail();
+                //presenter.validateEmail();
             }
         });
 
@@ -200,15 +200,15 @@ public class LoginFragment extends Fragment implements MainPresenter.View {
 
             @Override
             public void afterTextChanged(Editable s) {
-                presenter.validateCredentials();
+                //presenter.validateCredentials();
             }
         });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login_email.setEnabled(false);
-                login_password.setEnabled(false);
+                //login_email.setEnabled(false);
+                //login_password.setEnabled(false);
                 presenter.loginUser(login_email.getText().toString(), login_password.getText().toString());
             }
         });
