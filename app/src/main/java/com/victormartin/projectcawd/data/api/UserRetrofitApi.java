@@ -8,6 +8,6 @@ import retrofit2.http.POST;
 
 public interface UserRetrofitApi {
 
-    @POST("/auth/local")
+    @POST("auth/local")
     Call<User> loginUser(@Body LoginRequestEntity userId);
 }

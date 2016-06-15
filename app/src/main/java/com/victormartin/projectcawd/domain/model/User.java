@@ -8,11 +8,7 @@ package com.victormartin.projectcawd.domain.model;
 public class User {
 
     private UserData userData;
-
-    //private String name;
-    //private String email;
     private String token;
-    //private String id;
 
     public UserData getUserData() {
         return userData;

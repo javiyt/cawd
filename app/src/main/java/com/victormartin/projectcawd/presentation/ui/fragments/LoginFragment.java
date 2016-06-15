@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -149,7 +150,7 @@ public class LoginFragment extends Fragment implements MainPresenter.View {
 
     @Override
     public void loginUserAction() {
-
+        Log.e("DATA", "" + login_email.getText().toString() +""+ login_password.getText().toString());
         presenter.loginUser(login_email.getText().toString(), login_password.getText().toString());
     }
 

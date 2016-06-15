@@ -66,15 +66,12 @@ public class MainPresenterImpl implements MainPresenter {
             boolean validPassword = checkerPassword.isValid();
 
             if(validEmail && validPassword){
-                Log.e("validCred", "validEmail && validPassword");
                 view.loginUserAction();     //If it's ok, we login in.
             }else{
-                Log.e("validCred", "!(validEmail && validPassword)");
                 view.authError();
                 view.disableLoginButton();
             }
         }else{
-            Log.e("validCred", "identifier & password are empty");
             view.authError();
             view.disableLoginButton();
         }
@@ -94,7 +91,7 @@ public class MainPresenterImpl implements MainPresenter {
 
             @Override
             public void onLoginUser(User user) {
-                Log.e("onLoginUser", "" + user.getToken());
+                Log.e("onLoginUser", "" + user.toString());
                 Hawk.put("USER", user);
                 view.authSuccessful(user);
                 //the result of execute use case
