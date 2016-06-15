@@ -4,7 +4,7 @@
     <color name="app_error">#B93848</color>
     <color name="app_success">#338e3C</color>
     <color name="app_warning">#FF9800</color>
-
+    <color name="app_disable">#9E9E9E</color>
 
     <color name="colorPrimary">#3994CE</color>
     <color name="colorPrimaryDark">#303F9F</color>

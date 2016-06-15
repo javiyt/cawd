@@ -1,5 +1,8 @@
 package com.victormartin.projectcawd.presentation.presenters.impl;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.orhanobut.hawk.Hawk;
 import com.victormartin.projectcawd.domain.interactors.LoginUser;
 import com.victormartin.projectcawd.domain.model.User;
@@ -27,43 +30,55 @@ public class MainPresenterImpl implements MainPresenter {
     public void initialize() { }
 
     @Override
-    public void validateEmail(){
+    public void validateEmail(String identifier){
         EmailChecker checker = new EmailChecker(identifier);
         boolean valid = checker.isValid();
 
         if (!valid) {
-            view.showErrorInvalidEmail();
-        } /*else {
+            //view.showErrorInvalidEmail(); // To intrusive to show warnings if I input wrong identifier, better to wait until we click on login button
+        } else {
+            this.identifier = identifier;
             view.enablePassword();
-        }*/
+        }
     }
 
     @Override
-    public void validatePassword() {
+    public void validatePassword(String password) {
         PasswordChecker checker = new PasswordChecker(password);
         boolean valid = checker.isValid();
 
         if (!valid) {
             view.showErrorInvalidPassword();
         } else {
+            this.password = password;
             view.enableLoginButton();
         }
 
     }
 
     @Override
-    public void validateCredentials() {
-        PasswordChecker checkerPassword = new PasswordChecker(password);
-        EmailChecker checkerEmail = new EmailChecker(identifier);
-        boolean validPassword = checkerPassword.isValid();
-        boolean validEmail = checkerEmail.isValid();
+    public void validateCredentials(String identifier, String password) {
 
-        if(validEmail && validPassword){
-            view.enableLoginButton();
+        if(!TextUtils.isEmpty(identifier) && !TextUtils.isEmpty(password)){
+            EmailChecker checkerEmail = new EmailChecker(identifier);
+            PasswordChecker checkerPassword = new PasswordChecker(password);
+            boolean validEmail = checkerEmail.isValid();
+            boolean validPassword = checkerPassword.isValid();
+
+            if(validEmail && validPassword){
+                Log.e("validCred", "validEmail && validPassword");
+                view.loginUserAction();     //If it's ok, we login in.
+            }else{
+                Log.e("validCred", "!(validEmail && validPassword)");
+                view.authError();
+                view.disableLoginButton();
+            }
         }else{
+            Log.e("validCred", "identifier & password are empty");
             view.authError();
             view.disableLoginButton();
         }
+
     }
 
     @Override
@@ -79,7 +94,7 @@ public class MainPresenterImpl implements MainPresenter {
 
             @Override
             public void onLoginUser(User user) {
-
+                Log.e("onLoginUser", "" + user.getToken());
                 Hawk.put("USER", user);
                 view.authSuccessful(user);
                 //the result of execute use case

@@ -12,11 +12,11 @@ public interface MainPresenter extends BasePresenter {
 
     void loginUser(String identifier, String password);
 
-    void validateEmail();
+    void validateEmail(String identifier);
 
-    void validatePassword();
+    void validatePassword(String password);
 
-    void validateCredentials();
+    void validateCredentials(String identifier, String password);
 
     interface View extends BaseView {
 
@@ -24,7 +24,13 @@ public interface MainPresenter extends BasePresenter {
 
         void showErrorInvalidPassword();
 
+        void enableIdentifier();
+
+        void disableIdentifier();
+
         void enablePassword();
+
+        void disablePassword();
 
         void enableLoginButton();
 
@@ -33,6 +39,10 @@ public interface MainPresenter extends BasePresenter {
         void authSuccessful(User user);
 
         void authError();
+
+        void loginUserAction();
+
+        void loginButtonType(int type);
 
         // TODO: Add your view methods
     }

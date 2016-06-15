@@ -41,7 +41,6 @@
             android:hint="@string/IDENTIFIER_PLACEHOLDER_STRING"
             android:textColor="@color/blue_quantion"
             android:layout_below="@+id/login_label_email"
-            android:text="victor.martin@quantion.com"
             />
 
         <TextView
@@ -64,7 +63,6 @@
             android:textColor="@color/blue_quantion"
             android:layout_below="@+id/login_label_password"
             android:typeface="normal"
-            android:text="victor1234"
             />
 
         <com.dd.processbutton.iml.ActionProcessButton
