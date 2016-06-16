@@ -91,10 +91,13 @@ public class MainPresenterImpl implements MainPresenter {
 
             @Override
             public void onLoginUser(User user) {
-                Log.e("onLoginUser", "" + user.toString());
-                Hawk.put("USER", user);
-                view.authSuccessful(user);
-                //the result of execute use case
+                if(user != null) {
+                    Hawk.put("USER", user);
+                    view.authSuccessful(user);
+                    //the result of execute use case
+                }else{
+                    view.authError();
+                }
             }
 
             @Override

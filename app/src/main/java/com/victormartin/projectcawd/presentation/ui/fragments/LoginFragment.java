@@ -150,7 +150,6 @@ public class LoginFragment extends Fragment implements MainPresenter.View {
 
     @Override
     public void loginUserAction() {
-        Log.e("DATA", "" + login_email.getText().toString() +""+ login_password.getText().toString());
         presenter.loginUser(login_email.getText().toString(), login_password.getText().toString());
     }
 
@@ -168,7 +167,7 @@ public class LoginFragment extends Fragment implements MainPresenter.View {
                 .contentGravity(GravityEnum.CENTER)
                 .buttonsGravity(GravityEnum.START)
                 .title(getString(R.string.LGN_SUCCESS))
-                .content(getString(R.string.LGN_SUCCESS))
+                .content("Bienvenido " + user.getUserData().getUsername())
                 .positiveText(getString(R.string.ALERT_OK_TITLE_BUTTON_STRING))
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
